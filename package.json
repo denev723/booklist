@@ -1,0 +1,16 @@
+{
+  "name": "booklist",
+  "version": "1.0.0",
+  "description": "책 리스트 프로젝트(패스트캠퍼스)",
+  "main": "index.js",
+  "repository": "https://github.com/denev723/booklist.git",
+  "author": "denev <65989857+deneb0723@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "serve": "^11.3.2"
+  },
+  "scripts": {
+    "start": "serve"
+  }
+}
