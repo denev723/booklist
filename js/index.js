@@ -128,6 +128,7 @@ async function init() {
 
   const user = await getUser(token);
   if (user === null) {
+    localStorage.clear();
     location.assign("/login");
     return;
   }
