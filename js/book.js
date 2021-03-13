@@ -74,7 +74,7 @@ const render = (book) => {
       <p class="card-text">링크 : <a href="${
         book.url
       }" target="_BLANK">바로 가기</a></p>
-      <a href="/booklist/edit?id=${
+      <a href="github.com/booklist/edit?id=${
         book.bookId
       }" class="btn btn-primary btn-sm">Edit</a>
       <button type="button" class="btn btn-danger btn-sm" id="btn-delete">Delete</button>
