@@ -44,7 +44,7 @@ const handleSubmit = async (e) => {
         },
       }
     );
-    location.href = "/";
+    location.href = "/booklist/";
   } catch (error) {
     console.log("save Error", error);
   }
@@ -60,14 +60,14 @@ async function init() {
 
   const token = getToken();
   if (token === null) {
-    location.assign("/login");
+    location.assign("/booklist/login");
     return;
   }
 
   const user = await getUser(token);
   if (user === null) {
     localStorage.clear();
-    location.assign("/login");
+    location.assign("/booklist/login");
     return;
   }
 }

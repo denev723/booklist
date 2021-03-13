@@ -31,7 +31,7 @@ const getBooks = async (token) => {
 const deleteBook = async (bookId) => {
   const token = getToken();
   if (token === null) {
-    location.assign("/login");
+    location.assign("/booklist/login");
     return;
   }
   await axios.delete(`https://api.marktube.tv/v1/book/${bookId}`, {
@@ -45,7 +45,7 @@ const deleteBook = async (bookId) => {
 const logout = async (e) => {
   const token = getToken();
   if (token === null) {
-    location.assign("/login");
+    location.assign("/booklist/login");
     return;
   }
   try {
@@ -58,7 +58,7 @@ const logout = async (e) => {
     console.log("logout error", error);
   } finally {
     localStorage.clear();
-    location.assign("/login");
+    location.assign("/booklist/login");
   }
 };
 
@@ -79,7 +79,7 @@ const render = (books) => {
         <p class="card-text">${book.title === "" ? "제목 없음" : book.title}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <a href="/book?id=${book.bookId}">
+            <a href="/booklist/book?id=${book.bookId}">
               <button
                 type="button"
                 class="btn btn-sm btn-outline-secondary"
@@ -122,14 +122,14 @@ async function init() {
 
   const token = getToken();
   if (token === null) {
-    location.assign("/login");
+    location.assign("/booklist/login");
     return;
   }
 
   const user = await getUser(token);
   if (user === null) {
     localStorage.clear();
-    location.assign("/login");
+    location.assign("/booklist/login");
     return;
   }
 

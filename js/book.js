@@ -17,7 +17,7 @@ const getUser = async (token) => {
 const logout = async (e) => {
   const token = getToken();
   if (token === null) {
-    location.assign("/login");
+    location.assign("/booklist/login");
     return;
   }
   try {
@@ -30,7 +30,7 @@ const logout = async (e) => {
     console.log("logout error", error);
   } finally {
     localStorage.clear();
-    location.assign("/login");
+    location.assign("/booklist/login");
   }
 };
 
@@ -87,7 +87,7 @@ const render = (book) => {
   document.querySelector("#btn-delete").addEventListener("click", async () => {
     try {
       await deleteBook(book.bookId);
-      location.href = "/";
+      location.href = "/booklist/";
     } catch (error) {
       console.log(error);
     }
@@ -101,14 +101,14 @@ async function init() {
 
   const token = getToken();
   if (token === null) {
-    location.assign("/login");
+    location.assign("/booklist/login");
     return;
   }
 
   const user = await getUser(token);
   if (user === null) {
     localStorage.clear();
-    location.assign("/login");
+    location.assign("/booklist/login");
     return;
   }
 

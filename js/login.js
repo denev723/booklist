@@ -17,7 +17,7 @@ const handleSubmit = async (e) => {
     });
     const { token } = res.data;
     localStorage.setItem("token", token);
-    location = "/";
+    location = "/booklist/";
   } catch (error) {}
 };
 
@@ -31,7 +31,7 @@ async function init() {
 
   const token = getToken();
   if (token !== null) {
-    location.assign("/");
+    location.assign("/booklist/");
     return;
   }
 }

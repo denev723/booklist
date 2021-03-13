@@ -19,7 +19,7 @@ async function getUser(token) {
 async function getBook(bookId) {
   const token = getToken();
   if (token === null) {
-    location.href = "/login";
+    location.href = "/booklist/login";
     return null;
   }
   try {
@@ -52,7 +52,7 @@ async function updateBook(bookId) {
 
   const token = getToken();
   if (token === null) {
-    location = "/login";
+    location = "/booklist/login";
     return;
   }
 
@@ -93,7 +93,7 @@ function render(book) {
 
     try {
       await updateBook(book.bookId);
-      location.href = `book?id=${book.bookId}`;
+      location.href = `/booklist/book?id=${book.bookId}`;
     } catch (error) {
       console.log(error);
     }
@@ -104,7 +104,7 @@ function render(book) {
     event.preventDefault();
     event.stopPropagation();
 
-    location.href = `book?id=${book.bookId}`;
+    location.href = `/booklist/book?id=${book.bookId}`;
   });
 }
 
@@ -113,14 +113,14 @@ async function init() {
 
   const token = getToken();
   if (token === null) {
-    location.href = "/login";
+    location.href = "/booklist/login";
     return;
   }
 
   const user = await getUser(token);
   if (user === null) {
     localStorage.clear();
-    location = "/login";
+    location = "/booklist/login";
     return;
   }
 
